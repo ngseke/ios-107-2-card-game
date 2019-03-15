@@ -1,13 +1,20 @@
-//
-//  Card.swift
-//  CardGame01
-//
-//  Created by Sean on 2019/3/15.
-//  Copyright © 2019 Sean. All rights reserved.
-//
-
 import Foundation
 
 struct Card {
-  
+    var isFaceUp = false
+    var isMatched = false
+    var identifier:Int  // use ID, not emoji
+    
+    static var identifierFactory = 0
+    
+    static func getUniqueIdentifier () -> Int {
+        identifierFactory += 1
+        return identifierFactory
+    }
+    
+    
+    init () {
+        // 呼叫 static 的函式可以直接使用 Cards，不需要產生新的 instance
+        self.identifier = Card.getUniqueIdentifier()
+    }
 }
