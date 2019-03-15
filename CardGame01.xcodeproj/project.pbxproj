@@ -12,6 +12,8 @@
 		141D569622323C5100341B1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D569422323C5100341B1C /* Main.storyboard */; };
 		141D569822323C5300341B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141D569722323C5300341B1C /* Assets.xcassets */; };
 		141D569B22323C5300341B1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D569922323C5300341B1C /* LaunchScreen.storyboard */; };
+		14D6104A223B6E6C000FF93F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D61049223B6E6C000FF93F /* Card.swift */; };
+		14D6104C223B6E86000FF93F /* MatchingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6104B223B6E86000FF93F /* MatchingGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		141D569722323C5300341B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		141D569A22323C5300341B1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141D569C22323C5300341B1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14D61049223B6E6C000FF93F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		14D6104B223B6E86000FF93F /* MatchingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				141D569722323C5300341B1C /* Assets.xcassets */,
 				141D569922323C5300341B1C /* LaunchScreen.storyboard */,
 				141D569C22323C5300341B1C /* Info.plist */,
+				14D61049223B6E6C000FF93F /* Card.swift */,
+				14D6104B223B6E86000FF93F /* MatchingGame.swift */,
 			);
 			path = CardGame01;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				141D569322323C5100341B1C /* ViewController.swift in Sources */,
+				14D6104A223B6E6C000FF93F /* Card.swift in Sources */,
+				14D6104C223B6E86000FF93F /* MatchingGame.swift in Sources */,
 				141D569122323C5100341B1C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
