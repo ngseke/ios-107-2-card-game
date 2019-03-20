@@ -2,13 +2,24 @@ import Foundation
 
 class MatchingGame {
     var cards = [Card]() // var cards: Array<Card>
-    
+    var indexOfOneAndOnlyFaceUpCard: Int?   // 記錄已翻開牌之 id
+
     func chooseCard(at index: Int) {
-//        cards[index].isFaceUp = !cards[index].isFaceUp
-        if cards[index].isFaceUp {
-            cards[index].isFaceUp = false
-        } else {
-            cards[index].isFaceUp = true
+        if !cards[index].isMatched {    // 已配對的牌不作用
+            if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
+                if cards[matchIndex].identifier == cards[index].identifier {    // 配對到了
+                    cards[matchIndex].isMatched = true
+                    cards[index].isMatched = true
+                }
+                cards[index].isFaceUp = true
+                indexOfOneAndOnlyFaceUpCard = nil
+            } else {    // 沒有翻到正面的牌 或 2張卡都在正面
+                for flipDownIndex in cards.indices {
+                    cards[flipDownIndex].isFaceUp = false
+                }
+                cards[index].isFaceUp = true
+                indexOfOneAndOnlyFaceUpCard = index
+            }
         }
     }
     
