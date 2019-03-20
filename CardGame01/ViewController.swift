@@ -4,12 +4,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     @IBOutlet weak var flipCountLabel: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
 
+    var emojiChoice = ["🎃", "🦊", "🐧", "😁", "🥟", "👽", "🐶", "🐣"]
+    
+    var emoji = [Int:String]()
+    
+    //    或:
+    //    var emoji = Dictionary<Int, String>()
+    //    var emoji = [Int:String]()
+    
     // 使用 lazy 就無法使用 didSet
     lazy var game = MatchingGame(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     
@@ -47,7 +54,17 @@ class ViewController: UIViewController {
     }
     
     func emoji(for card: Card) -> String {
-        return "?"
+        if emoji[card.identifier] == nil {
+            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoice.count)))
+            emoji[card.identifier] = emojiChoice[randomIndex]
+        }
+        return emoji[card.identifier] ?? "?"
+//        或：
+//        if emoji[card.identifier] != nil {
+//            return emoji[card.identifier]!
+//        } else {
+//            return "?"
+//        }
     }
     
     // 令呼叫函式像是在讀英文
