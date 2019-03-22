@@ -31,6 +31,9 @@ class MatchingGame {
                     cards[index].isMatched = true
                 }
                 cards[index].isFaceUp = true
+            } else if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex == index {
+                cards[index].isFaceUp = false
+                indexOfOneAndOnlyFaceUpCard = nil
             } else {    // 沒有翻到正面的牌 或 2張卡都在正面
                 indexOfOneAndOnlyFaceUpCard = index
             }
