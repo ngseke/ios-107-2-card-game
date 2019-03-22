@@ -4,6 +4,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cardButtons.shuffle()
+        
     }
     
     @IBOutlet weak var flipCountLabel: UILabel!
@@ -18,7 +20,12 @@ class ViewController: UIViewController {
     //    var emoji:Dictionary<Int, String>
     
     // 使用 lazy 就無法使用 didSet
-    lazy var game = MatchingGame(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    
+    lazy var game = MatchingGame(numberOfPairsOfCards: numberOfParisCard)
+    
+    var numberOfParisCard: Int{
+        return (cardButtons.count + 1) / 2  // 是省略 get{} 的寫法
+    }
     
     var flipCount:Int = 0
     {
@@ -47,10 +54,25 @@ class ViewController: UIViewController {
                 button.setTitle(emoji(for: card), for: UIControl.State.normal)
                 button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             } else {
-                button.setTitle("", for: UIControl.State.normal)
+                if (!card.isMatched) {
+                    button.setTitle("", for: UIControl.State.normal)
+                }
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.9411764741, green: 0.760784328, blue: 0.1490196139, alpha: 0.5036861796) : #colorLiteral(red: 0.9411764741, green: 0.760784328, blue: 0.1490196139, alpha: 1)
             }
         }
+    }
+    @IBAction func reset(_ sender: Any) {
+        resetGame()
+    }
+    
+    func resetGame () {
+//        for index in cardButtons.indices {
+//            card.isFaceUp = false
+//            card.isMatched = false
+//        }
+//        flipCount = 0
+//        emojiChoice = ["🎃", "🦊", "🐧", "😁", "🥟", "👽", "🐶", "🐣"]
+//        game = MatchingGame(numberOfPairsOfCards: numberOfParisCard)
     }
     
     func emoji(for card: Card) -> String {
