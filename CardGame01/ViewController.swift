@@ -5,13 +5,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cardButtons.shuffle()
-        
+        emojiChoice = defaultEmoji
     }
     
     @IBOutlet weak var flipCountLabel: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
-
-    var emojiChoice = ["🎃", "🦊", "🐧", "😁", "🥟", "👽", "🐶", "🐣"]
+    var defaultEmoji = ["🎃", "🦊", "🐧", "😁", "🥟", "👽", "🐶", "🐣"]
+    var emojiChoice = [String]()
     
     var emoji = [Int:String]()
     
@@ -66,13 +66,13 @@ class ViewController: UIViewController {
     }
     
     func resetGame () {
-//        for index in cardButtons.indices {
-//            card.isFaceUp = false
-//            card.isMatched = false
-//        }
-//        flipCount = 0
-//        emojiChoice = ["🎃", "🦊", "🐧", "😁", "🥟", "👽", "🐶", "🐣"]
-//        game = MatchingGame(numberOfPairsOfCards: numberOfParisCard)
+        for index in cardButtons.indices {
+            cardButtons[index].setTitle("", for: UIControl.State.normal)
+            cardButtons[index].backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.760784328, blue: 0.1490196139, alpha: 1)
+        }
+        flipCount = 0
+        emojiChoice = defaultEmoji
+        game = MatchingGame(numberOfPairsOfCards: numberOfParisCard)
     }
     
     func emoji(for card: Card) -> String {
