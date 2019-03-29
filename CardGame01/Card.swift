@@ -12,7 +12,6 @@ struct Card {
         return identifierFactory
     }
     
-    
     init () {
         // 呼叫 static 的函式可以直接使用 Cards，不需要產生新的 instance
         self.identifier = Card.getUniqueIdentifier()

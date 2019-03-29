@@ -27,13 +27,6 @@ class ViewController: UIViewController {
         return (cardButtons.count + 1) / 2  // 是省略 get{} 的寫法
     }
     
-    var flipCount:Int = 0
-    {
-        didSet{
-            flipCountLabel.text = "Flips: \(flipCount)"
-        }
-    }
-    
     @IBAction func touchCard(_ sender: UIButton) {
         
         if let cardNumber = cardButtons.index(of: sender) {
@@ -42,11 +35,9 @@ class ViewController: UIViewController {
         } else {
             print("不在 collection 裡")
         }
-        
-        flipCount += 1
     }
     
-    func updateViewFromModel(){
+    func updateViewFromModel () {
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -60,7 +51,9 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.9411764741, green: 0.760784328, blue: 0.1490196139, alpha: 0.5036861796) : #colorLiteral(red: 0.9411764741, green: 0.760784328, blue: 0.1490196139, alpha: 1)
             }
         }
+        flipCountLabel.text = "Flips: \(game.count)"
     }
+    
     @IBAction func reset(_ sender: Any) {
         resetGame()
     }
@@ -70,9 +63,12 @@ class ViewController: UIViewController {
             cardButtons[index].setTitle("", for: UIControl.State.normal)
             cardButtons[index].backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.760784328, blue: 0.1490196139, alpha: 1)
         }
-        flipCount = 0
+
+        game.count = 0
         emojiChoice = defaultEmoji
         game = MatchingGame(numberOfPairsOfCards: numberOfParisCard)
+        cardButtons.shuffle()
+        updateViewFromModel()
     }
     
     func emoji(for card: Card) -> String {
@@ -94,5 +90,9 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func flipAll(_ sender: UIButton) {
+        game.flipAll()
+        updateViewFromModel()
+    }
 }
 
