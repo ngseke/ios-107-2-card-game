@@ -53,7 +53,6 @@ class MatchingGame {
     
     func flipAll () {
         var isAllFlipped = true
-        count = 0
         for index in cards.indices {
             if !(cards[index].isFaceUp && cards[index].isMatched) {
                 isAllFlipped = false
