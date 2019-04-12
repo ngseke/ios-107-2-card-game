@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     var defaultEmoji = ["🎃", "🦊", "🐧", "😁", "🥟", "👽", "🐶", "🐣"]
     var emojiChoice = [String]()
     
-    var emoji = [Int:String]()
+    var emoji = [Card:String]()
     
     //    或:
     //    var emoji = Dictionary<Int, String>()
@@ -72,11 +72,12 @@ class ViewController: UIViewController {
     }
     
     func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiChoice.count > 0 {
+        print(card.hashValue)
+        if emoji[card] == nil, emojiChoice.count > 0 {
             let randomIndex = Int(arc4random_uniform(UInt32(emojiChoice.count)))
-            emoji[card.identifier] = emojiChoice.remove(at: randomIndex)    // pop
+            emoji[card] = emojiChoice.remove(at: randomIndex)    // pop
         }
-        return emoji[card.identifier] ?? "?"
+        return emoji[card] ?? "?"
     }
     
     // 令呼叫函式像是在讀英文
