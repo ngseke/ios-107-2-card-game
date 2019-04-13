@@ -1,9 +1,10 @@
 import Foundation
 
 struct Card : Hashable {
-    var isFaceUp = false
+    var isFaceUp = false 
     var isMatched = false
     var identifier:Int  // use ID, not emoji
+    var isSeen = false // 是否被看過了
     
     static var identifierFactory = 0
     

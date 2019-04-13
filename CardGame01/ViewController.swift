@@ -9,6 +9,8 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     @IBOutlet var cardButtons: [UIButton]!
     var defaultEmoji = ["🎃", "🦊", "🐧", "😁", "🥟", "👽", "🐶", "🐣"]
     var emojiChoice = [String]()
@@ -52,6 +54,7 @@ class ViewController: UIViewController {
             }
         }
         flipCountLabel.text = "Flips: \(game.count)"
+        scoreLabel.text = "Score: \(game.score)"
     }
     
     @IBAction func reset(_ sender: Any) {

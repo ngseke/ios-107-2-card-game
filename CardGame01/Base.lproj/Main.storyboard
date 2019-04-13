@@ -242,7 +242,7 @@
                                     <action selector="flipAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QYt-tx-V9A"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcw-Cd-du0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcw-Cd-du0">
                                 <rect key="frame" x="129" y="626" width="86" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -262,6 +262,7 @@
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="OmB-FN-qMH" id="jA2-AH-Xw5"/>
+                        <outlet property="scoreLabel" destination="Bcw-Cd-du0" id="iIl-1W-bP9"/>
                         <outletCollection property="cardButtons" destination="Ynl-1D-PW4" collectionClass="NSMutableArray" id="fCo-PC-bir"/>
                         <outletCollection property="cardButtons" destination="jab-b2-GeY" collectionClass="NSMutableArray" id="jCS-hu-mtN"/>
                         <outletCollection property="cardButtons" destination="tUl-Jy-CyF" collectionClass="NSMutableArray" id="IIw-i3-Cdj"/>

@@ -3,7 +3,7 @@ import Foundation
 class MatchingGame {
     var cards = [Card]() // var cards: Array<Card>
     var count:Int = 0
-    var score:Int = 0
+    var score:Int = 100
     
     var indexOfOneAndOnlyFaceUpCard: Int? {    // 記錄已翻開牌之 id
         get {
@@ -29,10 +29,22 @@ class MatchingGame {
     func chooseCard(at index: Int) {
         if !cards[index].isMatched {    // 已配對的牌不作用
             count += 1
+            
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
-                if cards[matchIndex].identifier == cards[index].identifier {    // 配對到了
+                
+                if cards[matchIndex].identifier == cards[index].identifier {
+                    // [配對到了]
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    score += 2  // 加分
+                } else {
+                    // [配對錯]
+                    if cards[matchIndex].isSeen || cards[index].isSeen {
+                        // 任一張有牌有翻過
+                        score -= score >= 1 ? 1 : 0 // 低於 0 分就不扣
+                    }
+                    cards[matchIndex].isSeen = true
+                    cards[index].isSeen = true
                 }
                 cards[index].isFaceUp = true
             } else if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex == index {
@@ -42,6 +54,7 @@ class MatchingGame {
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
+        
     }
     
     init(numberOfPairsOfCards: Int) {
