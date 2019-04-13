@@ -5,13 +5,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cardButtons.shuffle()
-        emojiChoice = defaultEmoji
+        // 載入主題
+        themes += [ThemeAnimals(), ThemeSports(), ThemeFaces()]
+        shuffleThemesAndReset()
     }
     
     @IBOutlet weak var flipCountLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
     @IBOutlet var cardButtons: [UIButton]!
+    
+    var themes = [Theme]()
+    
     var defaultEmoji = ["🎃", "🦊", "🐧", "😁", "🥟", "👽", "🐶", "🐣"]
     var emojiChoice = [String]()
     
@@ -68,7 +73,9 @@ class ViewController: UIViewController {
         }
 
         game.count = 0
+        game.score = 0
         emojiChoice = defaultEmoji
+        shuffleThemesAndReset()
         game = MatchingGame(numberOfPairsOfCards: numberOfParisCard)
         cardButtons.shuffle()
         updateViewFromModel()
@@ -92,6 +99,11 @@ class ViewController: UIViewController {
             button.setTitle(emoji, for: UIControl.State.normal)
             button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         }
+    }
+    
+    func shuffleThemesAndReset () {
+        themes.shuffle()
+        emojiChoice = themes[0].emojis
     }
     
     @IBAction func flipAll(_ sender: UIButton) {

@@ -3,7 +3,7 @@ import Foundation
 class MatchingGame {
     var cards = [Card]() // var cards: Array<Card>
     var count:Int = 0
-    var score:Int = 100
+    var score:Int = 0
     
     var indexOfOneAndOnlyFaceUpCard: Int? {    // 記錄已翻開牌之 id
         get {
