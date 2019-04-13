@@ -16,14 +16,4 @@ struct Card : Hashable {
         // 呼叫 static 的函式可以直接使用 Cards，不需要產生新的 instance
         self.identifier = Card.getUniqueIdentifier()
     }
-    
-
-// // 舊版本swift
-//    var hashValue: Int {
-//        return identifier
-//    }
-//
-//    static func == (lhs: Card, rhs: Card) -> Bool {
-//        return lhs.identifier == rhs.identifier
-//    }
 }

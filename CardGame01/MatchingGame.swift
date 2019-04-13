@@ -3,6 +3,7 @@ import Foundation
 class MatchingGame {
     var cards = [Card]() // var cards: Array<Card>
     var count:Int = 0
+    var score:Int = 0
     
     var indexOfOneAndOnlyFaceUpCard: Int? {    // 記錄已翻開牌之 id
         get {
@@ -53,6 +54,7 @@ class MatchingGame {
     
     func flipAll () {
         var isAllFlipped = true
+    
         for index in cards.indices {
             if !(cards[index].isFaceUp && cards[index].isMatched) {
                 isAllFlipped = false
