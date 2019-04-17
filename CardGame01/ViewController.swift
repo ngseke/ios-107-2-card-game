@@ -6,7 +6,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         cardButtons.shuffle()
         // 載入主題
-        themes += [ThemeAnimals(), ThemeSports(), ThemeFaces()]
+        themes += [ThemeAnimals(), ThemeSports(), ThemeFaces(), ThemeVehicles(), ThemeFruits()]
         shuffleThemesAndReset()
     }
     
