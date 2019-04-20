@@ -41,7 +41,14 @@ class MatchingGame {
                     // [配對錯]
                     if cards[matchIndex].isSeen || cards[index].isSeen {
                         // 任一張有牌有翻過
-                        score -= score >= 1 ? 1 : 0 // 低於 0 分就不扣
+                        if cards[matchIndex].isSeen && cards[index].isSeen {
+                            // 2 張都翻過
+                            score -= 2
+                        }
+                        else {
+                            // 只翻過 1 張
+                            score -= 1
+                        }
                     }
                     cards[matchIndex].isSeen = true
                     cards[index].isSeen = true
